@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca de Anime</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <h1>Biblioteca de Anime</h1>
+
+    <form id="formAnime">
+        <input type="hidden" id="idAnime">
+
+        <label>Titulo</label>
+        <input type="text" id="titulo" required>
+
+        <label>Estudio</label>
+        <input type="text" id="estudio" required>
+
+        <label>Año</label>
+        <input type="number" id="anio" required>
+
+        <label>Genero</label>
+        <input type="text" id="genero" required>
+
+        <label>Episodios</label>
+        <input type="text" id="episodios" required>
+
+        <button type="submit" id="btnGuardar">Guardar</button>
+        <button type="button" id="btnCancelar">Cancelar</button>
+    </form>
+
+    <table id="tablaAnimes">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Estudio</th>
+                <th>Año</th>
+                <th>Genero</th>
+                <th>Episodios</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpoTabla">
+        </tbody>
+    </table>
+
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

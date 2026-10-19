@@ -1,0 +1,97 @@
+body {
+    background-color: #1a1420;
+    color: #e6e6e6;
+    font-family: Arial, sans-serif;
+    margin: 30px;
+}
+
+h1 {
+    color: #ff4f7b;
+    text-align: center;
+}
+
+form {
+    background-color: #241b2e;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+input {
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ff4f7b;
+    border-radius: 4px;
+    background-color: #1a1420;
+    color: #e6e6e6;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff4f7b;
+    color: #1a1420;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d63a62;
+}
+
+#btnCancelar {
+    background-color: #555555;
+    color: #e6e6e6;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+th, td {
+    border: 1px solid #3a2f44;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #241b2e;
+    color: #ff4f7b;
+}
+
+tr:nth-child(even) {
+    background-color: #201830;
+}
+
+.botonAccion {
+    margin-right: 5px;
+    padding: 5px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+.botonEditar {
+    background-color: #ff4f7b;
+    color: #1a1420;
+}
+
+.botonBorrar {
+    background-color: #e05555;
+    color: white;
+}
