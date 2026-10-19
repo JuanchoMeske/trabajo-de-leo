@@ -1,46 +1,52 @@
-from fastapi import FastAPI
+from typing import List
+
+from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from models import Anime
+from database import crear_tabla, get_db
 from managers import AdministradorAnimes
-from database import crear_tabla
+from models import AnimeActualizar, AnimeCrear, AnimeRespuesta
 
-app = FastAPI()
+app = FastAPI(title="AnimLOG API", description="CRUD de una biblioteca de anime")
 
+# El frontend corre en otro puerto (5500 con Live Server), asi que para el
+# navegador es otro origen. Sin esto el navegador bloquea las respuestas.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://127.0.0.1:5500", "http://localhost:5500"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 crear_tabla()
-admin = AdministradorAnimes()
 
 
-@app.post("/animes/nuevo")
-def crear_anime(anime: Anime):
-    admin.agregar(anime)
-    return {"mensaje": "anime agregado"}
-
-
-@app.put("/animes/editar/{id}")
-def editar_anime(id: int, anime: Anime):
-    admin.modificar(id, anime)
-    return {"mensaje": "anime modificado"}
-
-
-@app.delete("/animes/borrar/{id}")
-def borrar_anime(id: int):
-    admin.eliminar(id)
-    return {"mensaje": "anime borrado"}
-
-
-@app.get("/animes/todos")
-def listar_animes():
+@app.get("/animes/todos", response_model=List[AnimeRespuesta])
+def listar_animes(conexion=Depends(get_db)):
+    admin = AdministradorAnimes(conexion)
     return admin.ver_todos()
 
 
-@app.get("/animes/uno/{id}")
-def obtener_anime(id: int):
+@app.get("/animes/uno/{id}", response_model=AnimeRespuesta)
+def obtener_anime(id: int, conexion=Depends(get_db)):
+    admin = AdministradorAnimes(conexion)
     return admin.ver_uno(id)
+
+
+@app.post("/animes/nuevo", response_model=AnimeRespuesta)
+def crear_anime(anime: AnimeCrear, conexion=Depends(get_db)):
+    admin = AdministradorAnimes(conexion)
+    return admin.agregar(anime)
+
+
+@app.put("/animes/editar/{id}", response_model=AnimeRespuesta)
+def editar_anime(id: int, anime: AnimeActualizar, conexion=Depends(get_db)):
+    admin = AdministradorAnimes(conexion)
+    return admin.modificar(id, anime)
+
+
+@app.delete("/animes/borrar/{id}")
+def borrar_anime(id: int, conexion=Depends(get_db)):
+    admin = AdministradorAnimes(conexion)
+    admin.eliminar(id)
+    return {"mensaje": "anime borrado"}

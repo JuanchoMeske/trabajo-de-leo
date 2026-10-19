@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560" font-family="Segoe Print, Bradley Hand, Comic Sans MS, Chalkboard, cursive">
+<rect width="900" height="560" fill="#ffffff"/>
+<defs><marker id="punta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#1e1e1e" stroke-width="1.8" stroke-linecap="round"/></marker></defs>
+<text x="450" y="36.0" font-size="22" fill="#1e1e1e" text-anchor="middle">Arquitectura general de AnimLOG</text>
+<g transform="rotate(-0.07 165.0 245.0)">
+<rect x="40" y="90" width="250" height="310" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="165.0" y="245.0" font-size="15" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central"></text>
+</g>
+<text x="165" y="115.0" font-size="15" fill="#495057" text-anchor="middle">CLIENTE  (navegador)</text>
+<g transform="rotate(0.33 165.0 175.0)">
+<rect x="65" y="150" width="200" height="50" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="165.0" y="175.0" font-size="15" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">index.html</text>
+</g>
+<g transform="rotate(-0.32 165.0 240.0)">
+<rect x="65" y="215" width="200" height="50" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="165.0" y="230.9" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">main.js</text>
+<text x="165.0" y="249.1" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">(eventos)</text>
+</g>
+<g transform="rotate(0.25 165.0 305.0)">
+<rect x="65" y="280" width="200" height="50" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="165.0" y="295.9" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">ui.js</text>
+<text x="165.0" y="314.1" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">(DOM)</text>
+</g>
+<g transform="rotate(-0.15 165.0 367.0)">
+<rect x="65" y="345" width="200" height="44" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2"/>
+<text x="165.0" y="367.0" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">api.js  (fetch)</text>
+</g>
+<g transform="rotate(-0.25 735.0 245.0)">
+<rect x="610" y="90" width="250" height="310" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="735.0" y="245.0" font-size="15" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central"></text>
+</g>
+<text x="735" y="115.0" font-size="15" fill="#495057" text-anchor="middle">SERVIDOR  (uvicorn)</text>
+<g transform="rotate(-0.27 735.0 175.0)">
+<rect x="635" y="150" width="200" height="50" rx="10" fill="#ffec99" stroke="#1e1e1e" stroke-width="2"/>
+<text x="735.0" y="165.9" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">main.py</text>
+<text x="735.0" y="184.1" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">(endpoints)</text>
+</g>
+<g transform="rotate(-0.13 735.0 240.0)">
+<rect x="635" y="215" width="200" height="50" rx="10" fill="#ffec99" stroke="#1e1e1e" stroke-width="2"/>
+<text x="735.0" y="230.9" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">models.py</text>
+<text x="735.0" y="249.1" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">(Pydantic)</text>
+</g>
+<g transform="rotate(0.22 735.0 305.0)">
+<rect x="635" y="280" width="200" height="50" rx="10" fill="#ffec99" stroke="#1e1e1e" stroke-width="2"/>
+<text x="735.0" y="295.9" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">managers.py</text>
+<text x="735.0" y="314.1" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">(SQL)</text>
+</g>
+<g transform="rotate(-0.22 735.0 367.0)">
+<rect x="635" y="345" width="200" height="44" rx="10" fill="#ffec99" stroke="#1e1e1e" stroke-width="2"/>
+<text x="735.0" y="367.0" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">database.py</text>
+</g>
+<path d="M 275 350 Q 450.7 261.1 625 170" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" marker-end="url(#punta)"/>
+<rect x="373.2" y="237.7" width="153.6" height="19.5" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="450.0" y="247.4" font-size="13" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">peticion HTTP + JSON</text>
+<path d="M 625 240 Q 449.0 311.4 275 382" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" marker-end="url(#punta)"/>
+<rect x="395.0" y="288.6" width="109.9" height="19.5" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="450.0" y="298.4" font-size="13" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">respuesta JSON</text>
+<g transform="rotate(-0.31 735.0 480.0)">
+<rect x="635" y="450" width="200" height="60" rx="10" fill="#d0bfff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="735.0" y="470.2" font-size="15" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">animes.db</text>
+<text x="735.0" y="489.8" font-size="15" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">(SQLite)</text>
+</g>
+<path d="M 735 395 Q 731.5 417.6 735 445" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" marker-end="url(#punta)"/>
+<rect x="720.1" y="397.6" width="29.8" height="19.5" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="735.0" y="407.4" font-size="13" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">SQL</text>
+<text x="40" y="469.0" font-size="14" fill="#495057" text-anchor="start">El cliente NUNCA toca la base.</text>
+<text x="40" y="494.0" font-size="14" fill="#495057" text-anchor="start">Solo pide datos por HTTP.</text>
+<text x="165" y="533.0" font-size="13" fill="#868e96" text-anchor="middle">Puerto 5500</text>
+<text x="735" y="533.0" font-size="13" fill="#868e96" text-anchor="middle">Puerto 8000</text>
+</svg>

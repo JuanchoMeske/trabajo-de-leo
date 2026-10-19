@@ -60,7 +60,7 @@ button:hover {
 table {
     width: 100%;
     border-collapse: collapse;
-    max-width: 800px;
+    max-width: 980px;
     margin: 0 auto;
 }
 
@@ -96,4 +96,49 @@ tr:nth-child(even) {
 .botonBorrar {
     background-color: #e05555;
     color: white;
+}
+
+/* Checkbox "Ya lo vi": en linea en vez de apilado como los demas campos */
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.checkbox input {
+    width: auto;
+    margin-top: 0;
+}
+
+/* Carteles de estado: loading y errores */
+.mensaje {
+    max-width: 980px;
+    margin: 0 auto 15px auto;
+    padding: 10px 14px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.mensaje.error {
+    background-color: #3d1d26;
+    border: 1px solid #e05555;
+    color: #ffb3b3;
+}
+
+.mensaje.cargando {
+    background-color: #241b2e;
+    border: 1px solid #ff4f7b;
+    color: #ff9ab5;
+}
+
+.oculto {
+    display: none;
+}
+
+.tablaVacia {
+    text-align: center;
+    color: #999999;
+    font-style: italic;
 }

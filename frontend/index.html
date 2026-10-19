@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Biblioteca de Anime</title>
+    <title>AnimLOG</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -25,11 +25,21 @@
         <input type="text" id="genero" required>
 
         <label>Episodios</label>
-        <input type="text" id="episodios" required>
+        <input type="number" id="episodios" required>
+
+        <label class="checkbox">
+            <input type="checkbox" id="visto"> Ya lo vi
+        </label>
 
         <button type="submit" id="btnGuardar">Guardar</button>
         <button type="button" id="btnCancelar">Cancelar</button>
     </form>
+
+    <!-- Aca se muestran los errores de validacion (422) y los de red -->
+    <div id="mensajeError" class="mensaje error oculto"></div>
+
+    <!-- Se muestra mientras se espera la respuesta de la API -->
+    <div id="cargando" class="mensaje cargando oculto">Cargando...</div>
 
     <table id="tablaAnimes">
         <thead>
@@ -39,6 +49,7 @@
                 <th>Año</th>
                 <th>Genero</th>
                 <th>Episodios</th>
+                <th>Visto</th>
                 <th>Acciones</th>
             </tr>
         </thead>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620" width="920" height="620" font-family="Segoe Print, Bradley Hand, Comic Sans MS, Chalkboard, cursive">
+<rect width="920" height="620" fill="#ffffff"/>
+<defs><marker id="punta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#1e1e1e" stroke-width="1.8" stroke-linecap="round"/></marker></defs>
+<text x="460" y="36.0" font-size="22" fill="#1e1e1e" text-anchor="middle">Flujo CORS (por que hace falta)</text>
+<g transform="rotate(-0.04 165.0 108.0)">
+<rect x="50" y="80" width="230" height="56" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="165.0" y="98.2" font-size="15" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">Navegador en</text>
+<text x="165.0" y="117.8" font-size="15" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">127.0.0.1:5500</text>
+</g>
+<g transform="rotate(0.03 755.0 108.0)">
+<rect x="640" y="80" width="230" height="56" rx="10" fill="#ffec99" stroke="#1e1e1e" stroke-width="2"/>
+<text x="755.0" y="98.2" font-size="15" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">API en</text>
+<text x="755.0" y="117.8" font-size="15" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">127.0.0.1:8000</text>
+</g>
+<text x="460" y="109.0" font-size="14" fill="#e03131" text-anchor="middle">distinto puerto</text>
+<text x="460" y="127.9" font-size="14" fill="#e03131" text-anchor="middle">= distinto ORIGEN</text>
+<path d="M 285 180 Q 463.1 182.6 635 180" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" marker-end="url(#punta)"/>
+<rect x="375.9" y="157.7" width="168.2" height="19.5" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="460.0" y="167.4" font-size="13" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">1. OPTIONS (preflight)</text>
+<g transform="rotate(0.25 460.0 228.0)">
+<rect x="300" y="205" width="320" height="46" rx="10" fill="#ffffff" stroke="#1e1e1e" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="460.0" y="228.0" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">¿Me dejas pedirte datos?</text>
+</g>
+<path d="M 635 290 Q 458.2 289.3 285 290" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" marker-end="url(#punta)"/>
+<rect x="346.8" y="267.6" width="226.4" height="19.5" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="460.0" y="277.4" font-size="13" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">2. Access-Control-Allow-Origin</text>
+<g transform="rotate(-0.10 460.0 338.0)">
+<rect x="300" y="315" width="320" height="46" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2"/>
+<text x="460.0" y="338.0" font-size="13" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">Si, 127.0.0.1:5500 esta permitido</text>
+</g>
+<path d="M 285 400 Q 463.1 403.7 635 400" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" marker-end="url(#punta)"/>
+<rect x="361.4" y="377.6" width="197.3" height="19.5" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="460.0" y="387.4" font-size="13" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">3. POST real con los datos</text>
+<path d="M 635 450 Q 457.2 447.4 285 450" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" marker-end="url(#punta)"/>
+<rect x="394.1" y="427.6" width="131.8" height="19.5" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="460.0" y="437.4" font-size="13" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">4. Respuesta JSON</text>
+<g transform="rotate(-0.19 240.0 550.0)">
+<rect x="50" y="510" width="380" height="80" rx="10" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="2"/>
+<text x="240.0" y="531.8" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">SIN CORSMiddleware:</text>
+<text x="240.0" y="550.0" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">el navegador bloquea el paso 2</text>
+<text x="240.0" y="568.2" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">y el fetch falla</text>
+</g>
+<g transform="rotate(-0.19 675.0 550.0)">
+<rect x="480" y="510" width="390" height="80" rx="10" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2"/>
+<text x="675.0" y="531.8" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">CON CORSMiddleware:</text>
+<text x="675.0" y="550.0" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">la API avisa que confia en ese origen</text>
+<text x="675.0" y="568.2" font-size="14" fill="#1e1e1e" text-anchor="middle" dominant-baseline="central">y el navegador deja pasar</text>
+</g>
+</svg>

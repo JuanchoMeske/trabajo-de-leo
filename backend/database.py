@@ -1,24 +1,33 @@
 import sqlite3
 
-
-def obtener_conexion():
-    conexion = sqlite3.connect("animes.db")
-    conexion.row_factory = sqlite3.Row
-    return conexion
+NOMBRE_BASE = "animes.db"
 
 
 def crear_tabla():
-    conexion = obtener_conexion()
+    conexion = sqlite3.connect(NOMBRE_BASE)
     cursor = conexion.cursor()
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS animes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            titulo TEXT,
-            estudio TEXT,
-            año REAL,
-            genero TEXT,
-            episodios TEXT
+            titulo TEXT NOT NULL,
+            estudio TEXT NOT NULL,
+            año INTEGER NOT NULL,
+            genero TEXT NOT NULL,
+            episodios INTEGER NOT NULL,
+            visto INTEGER NOT NULL DEFAULT 0
         )
     """)
     conexion.commit()
     conexion.close()
+
+
+# FastAPI llama a esta funcion con Depends() en cada peticion.
+# El yield entrega la conexion al endpoint y el finally la cierra siempre,
+# aunque el endpoint haya lanzado un error.
+def get_db():
+    conexion = sqlite3.connect(NOMBRE_BASE)
+    conexion.row_factory = sqlite3.Row
+    try:
+        yield conexion
+    finally:
+        conexion.close()

@@ -1,54 +1,76 @@
-from database import obtener_conexion
-
-
 class AdministradorAnimes:
+    """Unica clase que habla con la base de datos.
+    Recibe la conexion ya armada por Depends(get_db), asi que no la
+    abre ni la cierra: de eso se encarga get_db."""
 
-    def agregar(self, anime):
-        conexion = obtener_conexion()
-        cursor = conexion.cursor()
-        cursor.execute(
-            "INSERT INTO animes (titulo, estudio, año, genero, episodios) VALUES (?, ?, ?, ?, ?)",
-            (anime.titulo, anime.estudio, anime.año, anime.genero, anime.episodios)
-        )
-        conexion.commit()
-        conexion.close()
-
-    def modificar(self, id, anime):
-        conexion = obtener_conexion()
-        cursor = conexion.cursor()
-        cursor.execute(
-            "UPDATE animes SET titulo=?, estudio=?, año=?, genero=?, episodios=? WHERE id=?",
-            (anime.titulo, anime.estudio, anime.año, anime.genero, anime.episodios, id)
-        )
-        conexion.commit()
-        conexion.close()
-
-    def eliminar(self, id):
-        conexion = obtener_conexion()
-        cursor = conexion.cursor()
-        cursor.execute("DELETE FROM animes WHERE id=?", (id,))
-        conexion.commit()
-        conexion.close()
+    def __init__(self, conexion):
+        self.conexion = conexion
 
     def ver_todos(self):
-        conexion = obtener_conexion()
-        cursor = conexion.cursor()
-        cursor.execute("SELECT * FROM animes")
+        cursor = self.conexion.cursor()
+        cursor.execute("SELECT * FROM animes ORDER BY id")
         filas = cursor.fetchall()
-        conexion.close()
 
         resultado = []
         for fila in filas:
-            resultado.append(dict(fila))
+            resultado.append(self._fila_a_diccionario(fila))
         return resultado
 
     def ver_uno(self, id):
-        conexion = obtener_conexion()
-        cursor = conexion.cursor()
-        cursor.execute("SELECT * FROM animes WHERE id=?", (id,))
+        cursor = self.conexion.cursor()
+        cursor.execute("SELECT * FROM animes WHERE id = ?", (id,))
         fila = cursor.fetchone()
-        conexion.close()
 
-        if fila:
-            return dict(fila)
-        return None
+        if fila is None:
+            return None
+        return self._fila_a_diccionario(fila)
+
+    def agregar(self, anime):
+        cursor = self.conexion.cursor()
+        cursor.execute(
+            """INSERT INTO animes (titulo, estudio, año, genero, episodios, visto)
+               VALUES (?, ?, ?, ?, ?, ?)""",
+            (anime.titulo, anime.estudio, anime.año, anime.genero,
+             anime.episodios, int(anime.visto))
+        )
+        self.conexion.commit()
+        return self.ver_uno(cursor.lastrowid)
+
+    def modificar(self, id, datos):
+        actual = self.ver_uno(id)
+        if actual is None:
+            return None
+
+        # exclude_unset deja solo los campos que vinieron en el JSON.
+        # Los que no vinieron se completan con lo que ya estaba guardado.
+        cambios = datos.model_dump(exclude_unset=True)
+
+        titulo = cambios.get("titulo", actual["titulo"])
+        estudio = cambios.get("estudio", actual["estudio"])
+        año = cambios.get("año", actual["año"])
+        genero = cambios.get("genero", actual["genero"])
+        episodios = cambios.get("episodios", actual["episodios"])
+        visto = cambios.get("visto", actual["visto"])
+
+        cursor = self.conexion.cursor()
+        cursor.execute(
+            """UPDATE animes
+               SET titulo = ?, estudio = ?, año = ?, genero = ?, episodios = ?, visto = ?
+               WHERE id = ?""",
+            (titulo, estudio, año, genero, episodios, int(visto), id)
+        )
+        self.conexion.commit()
+        return self.ver_uno(id)
+
+    def eliminar(self, id):
+        cursor = self.conexion.cursor()
+        cursor.execute("DELETE FROM animes WHERE id = ?", (id,))
+        self.conexion.commit()
+        return cursor.rowcount > 0
+
+    def _fila_a_diccionario(self, fila):
+        # sqlite3.Row se comporta como un diccionario, pero FastAPI necesita
+        # un dict de verdad. Ademas visto se guarda como 0/1 y se devuelve bool.
+        anime = dict(fila)
+        anime["visto"] = bool(anime["visto"])
+        return anime
