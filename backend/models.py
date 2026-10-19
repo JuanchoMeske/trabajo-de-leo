@@ -11,7 +11,6 @@ class AnimeBase(BaseModel):
     año: int = Field(ge=1900, le=2100)
     genero: str = Field(min_length=1, max_length=50)
     episodios: int = Field(ge=1, le=10000)
-    # Campo opcional: si no viene en el JSON se guarda como False.
     visto: bool = False
 
 

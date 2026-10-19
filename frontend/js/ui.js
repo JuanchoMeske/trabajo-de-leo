@@ -19,8 +19,6 @@ function pintarTabla(animes) {
         const anime = animes[i];
         const fila = document.createElement("tr");
 
-        // textContent en vez de innerHTML: si un titulo trae "<b>" o comillas
-        // se muestra tal cual escrito y no rompe la tabla.
         const valores = [
             anime.titulo,
             anime.estudio,

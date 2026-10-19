@@ -1,7 +1,3 @@
-// Esta capa SOLO escucha eventos y coordina.
-// No hay ningun fetch aca adentro: eso vive en api.js.
-// No hay ningun document.getElementById de la tabla: eso vive en ui.js.
-
 let listaAnimes = [];
 
 async function mostrarAnimes() {
@@ -80,8 +76,6 @@ document.getElementById("btnCancelar").addEventListener("click", function () {
     ocultarError();
 });
 
-// Un solo listener para toda la tabla: los botones se crean despues,
-// asi que se escucha al padre y se mira que boton se apreto.
 document.getElementById("cuerpoTabla").addEventListener("click", function (evento) {
     const boton = evento.target;
     const accion = boton.dataset.accion;

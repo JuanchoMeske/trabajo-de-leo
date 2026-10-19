@@ -1,11 +1,5 @@
-// Esta capa SOLO habla con la API. No toca el HTML.
-// Si algo sale mal lanza un Error con un mensaje ya listo para mostrar,
-// y main.js decide que hacer con el.
-
 const URL_BASE = "http://127.0.0.1:8000";
 
-// Convierte el error 422 de FastAPI en un texto legible.
-// FastAPI manda algo como: {"detail": [{"loc": ["body", "año"], "msg": "..."}]}
 function armarMensajeDeValidacion(cuerpo) {
     if (!cuerpo || !Array.isArray(cuerpo.detail)) {
         return "Los datos enviados no son validos.";
@@ -25,8 +19,6 @@ async function pedirALaApi(url, opciones) {
     try {
         respuesta = await fetch(url, opciones);
     } catch (error) {
-        // Si entra aca el fetch ni siquiera llego al servidor:
-        // la API esta apagada, cambio el puerto, o CORS bloqueo la respuesta.
         throw new Error("No se pudo conectar con la API. Fijate que el backend este corriendo en " + URL_BASE);
     }
 

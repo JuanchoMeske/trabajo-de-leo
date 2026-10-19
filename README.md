@@ -1,19 +1,17 @@
 # AnimLOG — Biblioteca de Anime
 
-**Alumno:** (completar nombre y apellido)
-**Curso:** (completar curso)
-**Materia:** Laboratorio de Programación III — TP Evaluativo Full Stack
+**Alumno:** Meske Juan Cruz
+**Curso:** 6to 5ta
+**Materia:** Laboratorio de Programación — TP Evaluativo Full Stack
 
 ---
 
 ## 1. Tema elegido
 
-**AnimLOG** es una aplicación full stack para llevar un registro personal de animes:
+**AnimLOG** es una aplicación full stack para llevar un registro de animes:
 qué viste, de qué estudio es, de qué año y cuántos episodios tiene.
 
-Elegí este tema porque la entidad sale natural: un anime tiene datos de distinto
-tipo (texto, número y un booleano), lo cual me servía para probar validaciones
-distintas en Pydantic y no quedarme solo con strings.
+Elegí este tema porque abarca los datos necesarios para poder completar este trabajo (iba a hacerlo de juegos pero eso ya lo hizo otro compañero).
 
 La entidad principal es **Anime** y tiene 7 campos:
 

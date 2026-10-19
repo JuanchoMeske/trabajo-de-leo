@@ -9,8 +9,6 @@ from models import AnimeActualizar, AnimeCrear, AnimeRespuesta
 
 app = FastAPI(title="AnimLOG API", description="CRUD de una biblioteca de anime")
 
-# El frontend corre en otro puerto (5500 con Live Server), asi que para el
-# navegador es otro origen. Sin esto el navegador bloquea las respuestas.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://127.0.0.1:5500", "http://localhost:5500"],

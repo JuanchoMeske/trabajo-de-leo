@@ -98,7 +98,6 @@ tr:nth-child(even) {
     color: white;
 }
 
-/* Checkbox "Ya lo vi": en linea en vez de apilado como los demas campos */
 .checkbox {
     display: flex;
     align-items: center;
@@ -111,7 +110,6 @@ tr:nth-child(even) {
     margin-top: 0;
 }
 
-/* Carteles de estado: loading y errores */
 .mensaje {
     max-width: 980px;
     margin: 0 auto 15px auto;

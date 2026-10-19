@@ -20,10 +20,6 @@ def crear_tabla():
     conexion.commit()
     conexion.close()
 
-
-# FastAPI llama a esta funcion con Depends() en cada peticion.
-# El yield entrega la conexion al endpoint y el finally la cierra siempre,
-# aunque el endpoint haya lanzado un error.
 def get_db():
     conexion = sqlite3.connect(NOMBRE_BASE)
     conexion.row_factory = sqlite3.Row

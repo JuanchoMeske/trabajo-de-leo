@@ -41,8 +41,6 @@ class AdministradorAnimes:
         if actual is None:
             return None
 
-        # exclude_unset deja solo los campos que vinieron en el JSON.
-        # Los que no vinieron se completan con lo que ya estaba guardado.
         cambios = datos.model_dump(exclude_unset=True)
 
         titulo = cambios.get("titulo", actual["titulo"])
@@ -69,8 +67,6 @@ class AdministradorAnimes:
         return cursor.rowcount > 0
 
     def _fila_a_diccionario(self, fila):
-        # sqlite3.Row se comporta como un diccionario, pero FastAPI necesita
-        # un dict de verdad. Ademas visto se guarda como 0/1 y se devuelve bool.
         anime = dict(fila)
         anime["visto"] = bool(anime["visto"])
         return anime
