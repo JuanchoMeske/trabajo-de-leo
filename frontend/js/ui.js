@@ -1,4 +1,3 @@
-// Esta capa SOLO toca el HTML. No hace ningun fetch.
 
 function pintarTabla(animes) {
     const cuerpoTabla = document.getElementById("cuerpoTabla");
