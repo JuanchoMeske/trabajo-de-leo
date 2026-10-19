@@ -32,7 +32,7 @@ document.getElementById("formAnime").addEventListener("submit", function (evento
     const datos = {
         titulo: document.getElementById("titulo").value,
         estudio: document.getElementById("estudio").value,
-        anio: Number(document.getElementById("año").value),
+        año: Number(document.getElementById("año").value),
         genero: document.getElementById("genero").value,
         episodios: document.getElementById("episodios").value
     };
