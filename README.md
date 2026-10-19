@@ -303,14 +303,6 @@ pinta en el cartel rojo. El usuario nunca ve el JSON crudo.
 > en la carpeta `docs/` y se pueden abrir y editar en https://excalidraw.com
 > (Menú → *Open* → elegir el archivo).
 
-### 6.4 Versión explicada para cualquier persona
-
-Además del README, armé un PDF que explica el proyecto **sin tecnicismos**, con la
-analogía de un restaurante (el mozo, la cocina y la heladera). Sirve para que alguien
-que no programa entienda cómo funciona:
-
-**[docs/AnimLOG-explicado-facil.pdf](docs/AnimLOG-explicado-facil.pdf)**
-
 ---
 
 ## 7. Preguntas de arquitectura
