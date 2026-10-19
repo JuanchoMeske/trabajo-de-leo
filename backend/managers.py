@@ -41,7 +41,7 @@ class AdministradorAnimes:
         if actual is None:
             return None
 
-        cambios = datos.model_dump(exclude_unset=True)
+        cambios = datos.dict(exclude_unset=True)
 
         titulo = cambios.get("titulo", actual["titulo"])
         estudio = cambios.get("estudio", actual["estudio"])
