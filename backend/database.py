@@ -15,7 +15,7 @@ def crear_tabla():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             titulo TEXT,
             estudio TEXT,
-            anio REAL,
+            año REAL,
             genero TEXT,
             episodios TEXT
         )

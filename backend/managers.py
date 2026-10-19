@@ -7,8 +7,8 @@ class AdministradorAnimes:
         conexion = obtener_conexion()
         cursor = conexion.cursor()
         cursor.execute(
-            "INSERT INTO animes (titulo, estudio, anio, genero, episodios) VALUES (?, ?, ?, ?, ?)",
-            (anime.titulo, anime.estudio, anime.anio, anime.genero, anime.episodios)
+            "INSERT INTO animes (titulo, estudio, año, genero, episodios) VALUES (?, ?, ?, ?, ?)",
+            (anime.titulo, anime.estudio, anime.año, anime.genero, anime.episodios)
         )
         conexion.commit()
         conexion.close()
@@ -17,8 +17,8 @@ class AdministradorAnimes:
         conexion = obtener_conexion()
         cursor = conexion.cursor()
         cursor.execute(
-            "UPDATE animes SET titulo=?, estudio=?, anio=?, genero=?, episodios=? WHERE id=?",
-            (anime.titulo, anime.estudio, anime.anio, anime.genero, anime.episodios, id)
+            "UPDATE animes SET titulo=?, estudio=?, año=?, genero=?, episodios=? WHERE id=?",
+            (anime.titulo, anime.estudio, anime.año, anime.genero, anime.episodios, id)
         )
         conexion.commit()
         conexion.close()
