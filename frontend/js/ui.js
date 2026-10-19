@@ -10,7 +10,7 @@ function pintarTabla(animes) {
         fila.innerHTML =
             "<td>" + anime.titulo + "</td>" +
             "<td>" + anime.estudio + "</td>" +
-            "<td>" + anime.anio + "</td>" +
+            "<td>" + anime.año + "</td>" +
             "<td>" + anime.genero + "</td>" +
             "<td>" + anime.episodios + "</td>" +
             "<td>" +
@@ -26,7 +26,7 @@ function limpiarFormulario() {
     document.getElementById("idAnime").value = "";
     document.getElementById("titulo").value = "";
     document.getElementById("estudio").value = "";
-    document.getElementById("anio").value = "";
+    document.getElementById("año").value = "";
     document.getElementById("genero").value = "";
     document.getElementById("episodios").value = "";
 }
@@ -35,7 +35,7 @@ function llenarFormulario(anime) {
     document.getElementById("idAnime").value = anime.id;
     document.getElementById("titulo").value = anime.titulo;
     document.getElementById("estudio").value = anime.estudio;
-    document.getElementById("anio").value = anime.anio;
+    document.getElementById("año").value = anime.año;
     document.getElementById("genero").value = anime.genero;
     document.getElementById("episodios").value = anime.episodios;
 }

@@ -8,6 +8,8 @@ body {
 h1 {
     color: #ff4f7b;
     text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3rem;
 }
 
 form {
@@ -22,7 +24,7 @@ form {
 
 label {
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 16px;
     color: #cccccc;
 }
 
