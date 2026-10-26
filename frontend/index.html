@@ -9,6 +9,7 @@
 
     <h1>AnimLOG</h1>
 
+    <div class="contenedor">
     <form id="formAnime">
         <input type="hidden" id="idAnime">
 
@@ -35,6 +36,7 @@
         <button type="button" id="btnCancelar">Cancelar</button>
     </form>
 
+    <section class="panelDatos">
     <div id="mensajeError" class="mensaje error oculto"></div>
 
     <div id="cargando" class="mensaje cargando oculto">Cargando...</div>
@@ -54,6 +56,8 @@
         <tbody id="cuerpoTabla">
         </tbody>
     </table>
+    </section>
+    </div>
 
     <script src="js/api.js"></script>
     <script src="js/ui.js"></script>

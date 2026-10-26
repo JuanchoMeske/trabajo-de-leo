@@ -4,7 +4,6 @@ from pydantic import BaseModel, Field
 
 
 class AnimeBase(BaseModel):
-    """Campos comunes y sus validaciones."""
 
     titulo: str = Field(min_length=1, max_length=100)
     estudio: str = Field(min_length=1, max_length=100)
@@ -15,13 +14,10 @@ class AnimeBase(BaseModel):
 
 
 class AnimeCrear(AnimeBase):
-    """Lo que se manda en el POST. No lleva id porque lo genera SQLite."""
     pass
 
 
 class AnimeActualizar(BaseModel):
-    """Lo que se manda en el PUT. Todos los campos son opcionales,
-    asi se puede mandar solo lo que cambio."""
 
     titulo: Optional[str] = Field(default=None, min_length=1, max_length=100)
     estudio: Optional[str] = Field(default=None, min_length=1, max_length=100)
@@ -32,6 +28,6 @@ class AnimeActualizar(BaseModel):
 
 
 class AnimeRespuesta(AnimeBase):
-    """Lo que devuelve la API. Es igual al base pero con el id."""
+
 
     id: int

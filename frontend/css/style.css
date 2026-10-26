@@ -9,17 +9,46 @@ h1 {
     color: #ff4f7b;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 3rem;
+    font-size: 3.4rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.contenedor {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.panelDatos {
+    flex: 1;
+    min-width: 0;
 }
 
 form {
     background-color: #241b2e;
     padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    margin: 0 auto 30px auto;
+    border-radius: 16px;
+    border-top: 5px solid #ff4f7b;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    width: 340px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
+}
+
+@media (max-width: 900px) {
+    .contenedor {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    form {
+        width: auto;
+    }
 }
 
 label {
@@ -32,16 +61,16 @@ input {
     padding: 8px;
     margin-top: 4px;
     border: 1px solid #ff4f7b;
-    border-radius: 4px;
+    border-radius: 8px;
     background-color: #1a1420;
     color: #e6e6e6;
 }
 
 button {
     margin-top: 15px;
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 4px;
+    border-radius: 24px;
     background-color: #ff4f7b;
     color: #1a1420;
     font-weight: bold;
@@ -59,36 +88,73 @@ button:hover {
 
 table {
     width: 100%;
-    border-collapse: collapse;
-    max-width: 980px;
-    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0 10px;
 }
 
 th, td {
-    border: 1px solid #3a2f44;
-    padding: 8px;
+    padding: 14px 12px;
     text-align: left;
 }
 
 th {
-    background-color: #241b2e;
     color: #ff4f7b;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-tr:nth-child(even) {
-    background-color: #201830;
+td {
+    background-color: #241b2e;
+}
+
+td:first-child {
+    border-left: 5px solid #ff4f7b;
+    border-radius: 12px 0 0 12px;
+    font-weight: bold;
+}
+
+td:last-child {
+    border-radius: 0 12px 12px 0;
+    white-space: nowrap;
+}
+
+tbody tr:hover td {
+    background-color: #2e2240;
+}
+
+.insignia {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.insignia.si {
+    background-color: #ff4f7b;
+    color: #1a1420;
+}
+
+.insignia.no {
+    background-color: #3a2f44;
+    color: #aaaaaa;
 }
 
 .botonAccion {
-    margin-right: 5px;
-    padding: 5px 8px;
-    font-size: 12px;
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
+    margin: 0 6px 0 0;
+    padding: 12px 20px;
+    font-size: 15px;
+    border-radius: 24px;
 }
 
 .botonEditar {
+    background-color: transparent;
+    border: 2px solid #ff4f7b;
+    color: #ff4f7b;
+}
+
+.botonEditar:hover {
     background-color: #ff4f7b;
     color: #1a1420;
 }
@@ -96,6 +162,10 @@ tr:nth-child(even) {
 .botonBorrar {
     background-color: #e05555;
     color: white;
+}
+
+.botonBorrar:hover {
+    background-color: #b83d3d;
 }
 
 .checkbox {
@@ -111,10 +181,9 @@ tr:nth-child(even) {
 }
 
 .mensaje {
-    max-width: 980px;
-    margin: 0 auto 15px auto;
+    margin: 0 0 15px 0;
     padding: 10px 14px;
-    border-radius: 4px;
+    border-radius: 12px;
     text-align: center;
     font-size: 14px;
 }

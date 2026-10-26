@@ -1,8 +1,5 @@
 class AdministradorAnimes:
-    """Unica clase que habla con la base de datos.
-    Recibe la conexion ya armada por Depends(get_db), asi que no la
-    abre ni la cierra: de eso se encarga get_db."""
-
+    
     def __init__(self, conexion):
         self.conexion = conexion
 

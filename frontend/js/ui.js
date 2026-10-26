@@ -24,8 +24,7 @@ function pintarTabla(animes) {
             anime.estudio,
             anime.año,
             anime.genero,
-            anime.episodios,
-            anime.visto ? "Si" : "No"
+            anime.episodios
         ];
 
         for (let j = 0; j < valores.length; j++) {
@@ -34,16 +33,23 @@ function pintarTabla(animes) {
             fila.appendChild(celda);
         }
 
+        const celdaVisto = document.createElement("td");
+        const insignia = document.createElement("span");
+        insignia.textContent = anime.visto ? "Visto" : "Pendiente";
+        insignia.className = anime.visto ? "insignia si" : "insignia no";
+        celdaVisto.appendChild(insignia);
+        fila.appendChild(celdaVisto);
+
         const celdaAcciones = document.createElement("td");
 
         const botonEditar = document.createElement("button");
-        botonEditar.textContent = "Editar";
+        botonEditar.textContent = "✎ Editar";
         botonEditar.className = "botonAccion botonEditar";
         botonEditar.dataset.id = anime.id;
         botonEditar.dataset.accion = "editar";
 
         const botonBorrar = document.createElement("button");
-        botonBorrar.textContent = "Borrar";
+        botonBorrar.textContent = "✕ Borrar";
         botonBorrar.className = "botonAccion botonBorrar";
         botonBorrar.dataset.id = anime.id;
         botonBorrar.dataset.accion = "borrar";
