@@ -85,10 +85,6 @@ En **otra** terminal, con el backend ya corriendo:
 cd frontend
 python -m http.server 5500
 ```
-
-> **Ojo:** no abrir el `index.html` con doble clic. Así el navegador bloquea los
-> pedidos al servidor (por CORS, que explico en la sección 6).
-
 ---
 
 ## 4. Endpoints
